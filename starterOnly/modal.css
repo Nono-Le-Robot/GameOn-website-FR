@@ -95,9 +95,10 @@ img {
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
+
     float: right;
     display: block;
-    margin-top: -15px;
+    margin-top: 0;
   }
 } 
 
@@ -137,6 +138,22 @@ main {
   font-family: var(--font-slab);
 }
 
+/* Modal Success or Error*/
+.modal-result{
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  height: 400px; */
+
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+
+}
+
 /* Modal form */
 
 .button {
@@ -158,6 +175,7 @@ main {
 }
 
 .bground {
+  
   display: none;
   position: fixed;
   z-index: 1;
@@ -170,7 +188,11 @@ main {
 }
 
 .content {
-  margin: 5% auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* margin: 5% auto; */
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -181,6 +203,45 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+
+}
+
+.close-animation{
+  animation-name: modalclose;
+
+
+}
+.result{
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* margin: 5% auto; */
+  width: 100%;
+  max-width: 500px;
+  height: 700px;
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding: 50px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  font-weight: 300;
+}
+
+#btn-close-result{
+  position: absolute;
+  transform: translateY(300px);
+  font-size: 18px;
+  padding: 10px 80px;
+  border-radius: 8px;
+  font-weight: 200;
 }
 
 .modal-body {
@@ -520,10 +581,23 @@ footer {
 @keyframes modalopen {
   from {
     opacity: 0;
-    transform: translateY(-150px);
+    transform: translate(-50%, 0);
   }
   to {
     opacity: 1;
   }
+
+  
 }
 
+
+
+@keyframes modalclose {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -100vh);
+    opacity: 0;
+  }
+}
